@@ -1,0 +1,13 @@
+<h1>New Wallet</h1>
+<%= form_for @wallet do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br />
+  <%= f.label :cash_value %>
+  <%= f.text_field :cash_value %>
+  <br />
+  <%= f.label :btc_value %>
+  <%= f.text_field :btc_value %>
+  <br />
+  <%= f.submit %>
+<% end %>

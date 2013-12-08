@@ -1,0 +1,16 @@
+<h1>My Wallets</h1>
+<%= link_to "New Wallet", new_wallet_path %>
+<br />
+<% if @wallets.size > 0 %>  
+  <ul>
+    <% @wallets.each do | wallet | %>
+      <li>
+        <%= link_to wallet.name, wallet_path(wallet) %>
+        Cash Value:<%= wallet.cash_value %> 
+        BTC Value: <%= wallet.btc_value %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  You have no wallets!
+<% end %>
