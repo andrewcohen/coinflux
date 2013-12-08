@@ -27,8 +27,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'ffaker'
   gem 'factory_girl_rails'
-  gem 'rspec'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'shoulda-matchers'
   gem 'annotate', require: false
 end
