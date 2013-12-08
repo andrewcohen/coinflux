@@ -14,8 +14,28 @@ class PriceTicker
   end
 
   def process(msg)
-    # TODO Store info in the database
+    write_to_db(msg)
     print_ticker(msg)
+  end
+
+  def write_to_db(msg)
+    msg_headers = msg.instance_variable_get(:@headers)
+    msg_body    = msg.instance_variable_get(:@message)
+
+    ticker_params = {}
+
+    %w(high low avg vwap last_local last_orig last buy sell).each do |key|
+      ticker_params[key.to_sym] = msg_body['ticker'][key]['value_int']
+    end
+
+    begin
+      date_time = DateTime.parse(msg_headers["DATE"])
+      ticker_params.merge!(date: date_time)
+    rescue Exception => e
+      log.error "Error parsing date: #{e.message}"
+    end
+
+    TickerPrice.create!(ticker_params)
   end
 
   def print_ticker(msg)
