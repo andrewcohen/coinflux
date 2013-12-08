@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208050435) do
+ActiveRecord::Schema.define(version: 20131208180708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: true do |t|
+  create_table "ticker_prices", force: true do |t|
+    t.integer  "high"
+    t.integer  "low"
+    t.integer  "avg"
+    t.integer  "vwap"
+    t.integer  "last_local"
+    t.integer  "last_orig"
+    t.integer  "last"
+    t.integer  "buy"
+    t.integer  "sell"
+    t.datetime "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
