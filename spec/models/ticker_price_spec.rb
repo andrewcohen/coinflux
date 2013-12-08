@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe TickerPrice do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should create a record" do
+    expect {
+      TickerPrice.create
+    }.to change {TickerPrice.count}.by(1)
+  end
 end
