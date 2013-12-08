@@ -1,5 +1,5 @@
 Run these
 
-`ruby price_ticker.rb`
+`rails runner price_ticker.rb`
 
 `rails server`
