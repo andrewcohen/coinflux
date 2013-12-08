@@ -1,0 +1,9 @@
+<%= @wallet.name %>
+<%= link_to "(Change Name)", edit_wallet_path(@wallet) %>
+<br />
+Cash Value:<%= @wallet.cash_value %>
+<br />
+BTC Value: <%= @wallet.btc_value %>
+<br />
+<%= link_to "Delete Wallet", wallet_path(@wallet), method: :delete, confirm: "Are you sure you want to delete #{@wallet.name}?" %>
+

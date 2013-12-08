@@ -3,4 +3,5 @@ Coinflux::Application.routes.draw do
   resources :ticker_prices
   resources :users, except: [:index, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :wallets
 end
