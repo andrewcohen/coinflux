@@ -1,5 +1,5 @@
 Coinflux::Application.routes.draw do
-  root to: "ticker_prices#index"
+  root to: "home#index"
   resources :ticker_prices
   resources :users, except: [:index, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
