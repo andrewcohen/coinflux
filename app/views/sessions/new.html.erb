@@ -2,12 +2,13 @@
 
 <%= form_for User.new, url: sessions_path do |f| %>
   <%= f.label :username %>
-  <%= f.text_field :username %>
+  <%= f.text_field :username, placeholder: "Email address", class: "form-group form-contol" %>
 
   <br />
   <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, placeholder: "Password", class: "form-group form-contol" %>
 
   <br />
-  <%= f.submit "Login" %>
+  <%= f.submit "Login", class: "btn btn-default" %>
 <% end %>
+

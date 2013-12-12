@@ -1,16 +1,28 @@
 <h1>My Wallets</h1>
-<%= link_to "New Wallet", new_wallet_path %>
+<%= link_to "New Wallet", new_wallet_path, class: "btn btn-sm btn-primary"%>
 <br />
+
 <% if @wallets.size > 0 %>  
-  <ul>
-    <% @wallets.each do | wallet | %>
-      <li>
-        <%= link_to wallet.name, wallet_path(wallet) %>
-        Cash Value:<%= wallet.cash_value %> 
-        BTC Value: <%= wallet.btc_value %>
-      </li>
-    <% end %>
-  </ul>
+<div class="wallets_table">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Wallet</th>
+            <th>Cash Value</th>
+            <th>BTC Value</th>
+          </tr>
+        </thead>
+        <tbody>
+         <% @wallets.each do | wallet | %>
+          <tr>
+            <td><%= link_to wallet.name, wallet_path(wallet) %></td>
+            <td><%= wallet.cash_value %> </td>
+            <td><%= wallet.btc_value %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 <% else %>
   You have no wallets!
 <% end %>
