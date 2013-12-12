@@ -5,5 +5,27 @@ Cash Value:<%= @wallet.cash_value %>
 <br />
 BTC Value: <%= @wallet.btc_value %>
 <br />
-<%= link_to "Delete Wallet", wallet_path(@wallet), method: :delete, confirm: "Are you sure you want to delete #{@wallet.name}?" %>
 
+<!-- Button trigger modal -->
+<button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete_wallet">
+  Delete Wallet
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="delete_wallet" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Delete Wallet</h4>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete <%= @wallet.name %>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <%= link_to "Confirm", wallet_path(@wallet), method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
