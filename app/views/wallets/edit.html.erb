@@ -1,5 +1,15 @@
-<%= form_for @wallet do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
+
+<div class="container">
+  <div class="col-md-5">
+    <h2>Change Wallet Name</h2>
+    <%= form_for @wallet do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+        <%= f.submit "Update Wallet", class: "btn btn-sm btn-primary" %>
+      <% end %>
+  </div>
+</div>
+
+
