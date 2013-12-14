@@ -1,17 +1,24 @@
-<h1>Create a new user</h1>
+<div class="container">
+  <div class="col-md-5">
+    <h1>Register</h1>
+      <%= form_for @user do |f| %>
+      <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+        <%= f.submit "Register", class: "btn btn-sm btn-primary" %>
+        <% end %>
+  </div>
+</div>
 
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <br />
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
 
-  <br />
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
 
-  <br />
-  <%= f.submit %>
-<% end %>
