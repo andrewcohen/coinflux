@@ -1,3 +1,15 @@
+
+<div id="graph">
+</div>
+
+<div id="buy_graph_data" style="display: none;">
+  <%= @buy_graph_data.to_json %>
+</div>
+
+<div id="sell_graph_data" style="display: none;">
+  <%= @sell_graph_data.to_json %>
+</div>
+
 <ul>
   <% @prices.each do |price| %>
   <li>

@@ -18,4 +18,20 @@
 #
 
 class TickerPrice < ActiveRecord::Base
+
+  def actual_price(price)
+    price.to_f / 100000
+  end
+
+  def graph_data_for(attr)
+    {x: self.created_at.to_i, y: actual_price(attr)}
+  end
+
+  def graph_buy_price
+    graph_data_for(self.buy)
+  end
+
+  def graph_sell_price
+    graph_data_for(self.sell)
+  end
 end
