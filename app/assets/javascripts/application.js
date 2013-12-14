@@ -17,6 +17,7 @@
 //= require vendor/d3.v3
 //= require vendor/d3.layout.min
 //= require vendor/rickshaw
+//= require vendor/faye-browser
 //= require navbar
 //= require graphs
 //= require_tree .
