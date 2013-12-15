@@ -25,6 +25,7 @@ gem 'turbolinks' # meh?
 #gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
+  gem 'quiet_assets'
   gem 'pry-rails'
   gem 'ffaker'
   gem 'factory_girl_rails'

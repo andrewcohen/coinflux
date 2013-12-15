@@ -14,13 +14,10 @@
 
 <ul>
   <% @prices.each do |price| %>
-  <li>
-  High: <%= formatted_price price.high %>
-  Low: <%= formatted_price price.low %>
-  Buy: <%= formatted_price price.buy %>
-
-
-
-  </li>
+    <li>
+      High: <%= formatted_price price.high %>
+      Low: <%= formatted_price price.low %>
+      Buy: <%= formatted_price price.buy %>
+    </li>
   <% end %>
 </ul>

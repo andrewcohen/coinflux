@@ -10,7 +10,9 @@
           </button>
           <%= link_to "Coinflux", root_url, class: "navbar-brand" %>
         </div>
-        <div class="collapse navbar-collapse">
+
+
+        <div class="collapse navbar-collapse pull-left">
           <ul class="nav navbar-nav">
             <% if current_user %>
               <li>
@@ -26,6 +28,20 @@
             <% end %>
           </ul>
         </div>
+
+        <ul class="nav navbar-nav live-ticker pull-left">
+          <li class='buy'>
+          <%= link_to ticker_prices_path do %>
+            Buy: <span><%= formatted_price @latest_price[:buy] %></span>
+          <% end %>
+          </li>
+          <li class='sell'>
+          <%= link_to ticker_prices_path do %>
+            Sell: <span><%= formatted_price @latest_price[:sell] %></span>
+          <% end %>
+          </li>
+        </ul>
+
       </div>
     </div>
 </nav>
