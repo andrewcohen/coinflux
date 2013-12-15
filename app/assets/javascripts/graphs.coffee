@@ -5,7 +5,7 @@ $ ->
       element: document.querySelector("#graph")
       width: 580
       height: 250
-      renderer: 'bar'
+      #renderer: 'bar'
       series: [
         {
           data: JSON.parse($('#buy_graph_data').text())

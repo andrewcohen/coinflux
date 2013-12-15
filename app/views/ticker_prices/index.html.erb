@@ -13,8 +13,9 @@
 </div>
 
 <ul>
-  <% @prices.each do |price| %>
+  <% @prices.reverse.each do |price| %>
     <li>
+      <%= price.created_at %>
       High: <%= formatted_price price.high %>
       Low: <%= formatted_price price.low %>
       Buy: <%= formatted_price price.buy %>
