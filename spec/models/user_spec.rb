@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe User do
-  it {should have_many :wallets}
+  pending "WRITE SOME SPECS YOU BUM!"
 end

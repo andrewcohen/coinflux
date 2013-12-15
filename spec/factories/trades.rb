@@ -26,6 +26,7 @@ FactoryGirl.define do
     start_cash 1
     end_btc 1
     end_cash 1
-    completed_at "2013-12-15 14:38:42"
+    completed_at nil
+    transaction_type "buy"
   end
 end

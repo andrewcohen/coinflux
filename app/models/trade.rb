@@ -21,15 +21,20 @@ class Trade < ActiveRecord::Base
   belongs_to :wallet
 
   validates_inclusion_of :transaction_type, in: ["buy", "sell"]
+  validates_numericality_of :buy_amount, allow_nil: true, greater_than_or_equal_to: 0
+  validates_numericality_of :sell_amount, allow_nil: true, greater_than_or_equal_to: 0
 
   scope :pending, -> {where("completed_at is null")}
   scope :unconfirmed, -> {where("confirmed_at is null")}
 
-  before_create :convert_values
+  before_save :convert_values
 
-  def convert_values
-    self.buy_amount = (self.buy_amount.to_f * 100000).to_i if self.buy_amount
-    self.sell_amount = (self.sell_amount.to_f * 100000).to_i if self.sell_amount
+  def buy_amount=(amt)
+    write_attribute(:buy_amount, amt) unless confirmed_at?
+  end
+
+  def sell_amount=(amt)
+    write_attribute(:sell_amount, amt) unless confirmed_at?
   end
 
   def status
@@ -39,6 +44,15 @@ class Trade < ActiveRecord::Base
       "PENDING (#{confirmed_at})"
     else
       "UNCONFIRMED"
+    end
+  end
+
+  def confirm!
+    unless self.confirmed_at?
+      self.update_attributes(confirmed_at: Time.now.utc)
+    else
+      self.errors.add(:base, "Trade is already confirmed!")
+      false
     end
   end
 
@@ -72,6 +86,20 @@ class Trade < ActiveRecord::Base
       end
     else
 
+    end
+  end
+
+  private
+
+  def convert_values
+    unless confirmed_at?
+      if self.buy_amount && (new_record? || buy_amount_changed?)
+        self.buy_amount = (self.buy_amount.to_f * 100000).to_i
+      end
+
+      if self.sell_amount && (new_record? || sell_amount_changed?)
+        self.sell_amount = (self.sell_amount.to_f * 100000).to_i
+      end
     end
   end
 end
