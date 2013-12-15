@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap_includes
 //= require vendor/d3.v3
 //= require vendor/d3.layout.min
