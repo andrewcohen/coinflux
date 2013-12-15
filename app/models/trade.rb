@@ -53,14 +53,19 @@ class Trade < ActiveRecord::Base
 
       if cash_funds >= price_of_desired_btc
         # trade can happen
+        end_btc = btc_funds + self.buy_amount
+        end_cash = cash_funds - price_of_desired_btc
         attrs = {
           start_btc: btc_funds,
           start_cash: cash_funds,
-          end_btc: btc_funds + self.buy_amount,
-          end_cash: cash_funds - price_of_desired_btc,
+          end_btc: end_btc,
+          end_cash: end_cash,
           completed_at: Time.now
         }
         self.update_attributes(attrs)
+
+        # update wallet
+        self.wallet.update_attributes(btc_value: end_btc, cash_value: end_cash)
       else
         # reject trade
         errors.add(:base, "NOT ENOUGH FUNDS!")
