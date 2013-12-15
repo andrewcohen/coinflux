@@ -2,3 +2,19 @@
 .navbar-inverse .navbar-nav > li > a.selected {
   color: orange;
 }
+
+#graph_container {
+  position: relative;
+
+
+ #graph {
+   position: relative;
+   left: 40px;
+  }
+
+  #y_axis {
+    position: absolute;
+    top: 0;
+    width: 40px;
+  }
+}
