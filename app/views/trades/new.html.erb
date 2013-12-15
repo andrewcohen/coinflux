@@ -3,8 +3,8 @@
 <div>
   <h4>Funds available in <%= link_to @wallet.name, wallet_path(@wallet) %></h4>
   <ul>
-    <li>$<%= @wallet.cash_value %></li>
-    <li><%= @wallet.btc_value %> BTC</li>
+    <li>$<%= formatted_price @wallet.cash_value %></li>
+    <li><%= formatted_price @wallet.btc_value %> BTC</li>
   </ul>
 </div>
 
