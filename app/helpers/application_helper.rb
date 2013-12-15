@@ -1,6 +1,6 @@
 module ApplicationHelper
   def formatted_price(price)
-    "$#{'%.2f' % (price.to_f / 100000).round(2)}"
+    "#{'%.2f' % (price.to_f / 100000).round(2)}"
   end
 
 

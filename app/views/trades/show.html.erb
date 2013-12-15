@@ -4,6 +4,15 @@ Transaction Type: <%= @trade.transaction_type.titleize %>
 <br />
 <% if @trade.transaction_type == "buy" %>
   Bought <%= @trade.buy_amount %> BTC
+  <br />
+  Started with <%= formatted_price @trade.start_btc %> BTC
+  <br />
+  Started with <%= formatted_price @trade.start_cash %> USD
+  <br />
+  Ended with <%= formatted_price @trade.end_btc %> BTC
+  <br />
+  Ended with <%= formatted_price @trade.end_cash %> USD
 <% else %>
   Sold <%= @trade.sell_amount %> BTC
 <% end %>
+

@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 20131215193842) do
 
   create_table "trades", force: true do |t|
     t.integer  "wallet_id"
-    t.integer  "buy_amount"
-    t.integer  "sell_amount"
-    t.integer  "start_btc"
-    t.integer  "start_cash"
-    t.integer  "end_btc"
-    t.integer  "end_cash"
+    t.integer  "buy_amount",       limit: 8
+    t.integer  "sell_amount",      limit: 8
+    t.integer  "start_btc",        limit: 8
+    t.integer  "start_cash",       limit: 8
+    t.integer  "end_btc",          limit: 8
+    t.integer  "end_cash",         limit: 8
     t.datetime "confirmed_at"
     t.datetime "completed_at"
     t.string   "transaction_type"
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20131215193842) do
   end
 
   create_table "wallets", force: true do |t|
-    t.integer  "cash_value"
-    t.integer  "btc_value"
+    t.integer  "cash_value", limit: 8
+    t.integer  "btc_value",  limit: 8
     t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at"

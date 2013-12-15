@@ -25,14 +25,12 @@ class TradesController < ApplicationController
   def confirm_trade
     @trade = current_wallet.trades.where(id: params[:id]).first
 
-    attrs = {
-      start_btc: current_wallet.btc_value,
-      start_cash: current_wallet.cash_value,
-      confirmed_at: Time.now.utc
-    }
-
-    if @trade.update_attributes(attrs)
+    if @trade.update_attributes(confirmed_at: Time.now.utc)
       flash[:success] = "Trade confirmed"
+
+      # TODO move this to a background worker
+      @trade.perform! unless @trade.completed_at?
+
       redirect_to wallet_trade_path(current_wallet, @trade)
     else
       flash[:error] = "Something went wrong"

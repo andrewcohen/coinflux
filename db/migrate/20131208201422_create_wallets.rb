@@ -1,8 +1,8 @@
 class CreateWallets < ActiveRecord::Migration
   def change
     create_table :wallets do |t|
-      t.integer :cash_value
-      t.integer :btc_value
+      t.column :cash_value, :bigint
+      t.column :btc_value, :bigint
       t.references :user, index: true
       t.string :name
       t.timestamps

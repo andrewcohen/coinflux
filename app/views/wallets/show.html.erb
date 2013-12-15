@@ -6,9 +6,9 @@
 
   <br />
   <br />
-  Cash Value:<%= @wallet.cash_value %>
+  Cash Value:<%= formatted_price @wallet.cash_value %>
   <br />
-  BTC Value: <%= @wallet.btc_value %>
+  BTC Value: <%= formatted_price @wallet.btc_value %>
   <br />
 
   <%= link_to "New Trade", new_wallet_trade_path(@wallet), class: "btn btn-primary" %>
