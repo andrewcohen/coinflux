@@ -40,6 +40,12 @@
             Sell: <span><%= formatted_price @latest_price[:sell] %></span>
           <% end %>
           </li>
+
+          <li class='volume'>
+          <%= link_to ticker_prices_path do %>
+            <span><%#= formatted_price @latest_price[:vol] %> BTC</span>
+          <% end %>
+          </li>
         </ul>
 
       </div>

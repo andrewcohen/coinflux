@@ -5,8 +5,11 @@ $ ->
 
   buy = $('.live-ticker li.buy span')
   sell = $('.live-ticker li.sell span')
+  vol = $('.live-ticker li.volume span')
+
   client.subscribe '/ticker', (message) ->
     console.log message
     buy.text(message.buy)
     sell.text(message.sell)
+    vol.text(message.vol)
 
