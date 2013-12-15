@@ -1,0 +1,21 @@
+<h1>Confirm trade</h1>
+
+
+<div>
+  <h4>Starting funds for <%= link_to @wallet.name, wallet_path(@wallet) %></h4>
+  <ul>
+    <li>$<%= @wallet.cash_value %></li>
+    <li><%= @wallet.btc_value %> BTC</li>
+  </ul>
+</div>
+
+Transaction Type <%= @trade.transaction_type.titleize %>
+<br />
+<% if @trade.transaction_type == "buy" %>
+  Buying <%= @trade.buy_amount %> BTC
+<% else %>
+  Selling <%= @trade.sell_amount %> BTC
+<% end %>
+
+<%= link_to "Confirm Trade", confirm_trade_wallet_trade_path(@wallet, @trade),
+  method: :put, class: "btn btn-primary" %>

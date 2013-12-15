@@ -13,5 +13,6 @@
 
 class Wallet < ActiveRecord::Base
   belongs_to :user
+  has_many :trades
   validates_presence_of :name, :btc_value, :cash_value
 end

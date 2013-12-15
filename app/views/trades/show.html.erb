@@ -1,0 +1,9 @@
+<h2>Status: <%= @trade.status %></h2>
+
+Transaction Type: <%= @trade.transaction_type.titleize %>
+<br />
+<% if @trade.transaction_type == "buy" %>
+  Bought <%= @trade.buy_amount %> BTC
+<% else %>
+  Sold <%= @trade.sell_amount %> BTC
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131215062253) do
+ActiveRecord::Schema.define(version: 20131215193842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,23 @@ ActiveRecord::Schema.define(version: 20131215062253) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "trades", force: true do |t|
+    t.integer  "wallet_id"
+    t.integer  "buy_amount"
+    t.integer  "sell_amount"
+    t.integer  "start_btc"
+    t.integer  "start_cash"
+    t.integer  "end_btc"
+    t.integer  "end_cash"
+    t.datetime "confirmed_at"
+    t.datetime "completed_at"
+    t.string   "transaction_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trades", ["wallet_id"], name: "index_trades_on_wallet_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
