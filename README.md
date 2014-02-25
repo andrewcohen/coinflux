@@ -1,10 +1,1 @@
-Run these
-
-`rails runner price_ticker.rb`
-
-`rails server`
-
-*Dont Forget To Do These Things 
-
--Authorize resources to current user.
-
+This app is designed to consume data from [coinstream](https://github.com/andrewcohen/coinstream)
